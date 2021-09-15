@@ -100,3 +100,9 @@ def english_cleaners_v2(text):
     # compatibility with basic_english symbol set
     text = re.sub(r'/+', ' ', text)
     return text
+
+# TODO: Additional vietnamese cleaner 
+def vie_cleaners(text):
+    text = lowercase(text)
+    text = collapse_whitespace(text)
+    return text

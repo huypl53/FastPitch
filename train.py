@@ -129,6 +129,8 @@ def parse_args(parser):
                       help='Type of text cleaners for input text')
     data.add_argument('--symbol-set', type=str, default='english_basic',
                       help='Define symbol set for input text')
+
+    # TODO: check paper
     data.add_argument('--p-arpabet', type=float, default=0.0,
                       help='Probability of using arpabets instead of graphemes '
                            'for each word; set 0 for pure grapheme training')
@@ -136,6 +138,8 @@ def parse_args(parser):
                       help='Path to the list of heteronyms')
     data.add_argument('--cmudict-path', type=str, default='cmudict/cmudict-0.7b',
                       help='Path to the pronouncing dictionary')
+    
+    # TODO: training set 2 args below to false
     data.add_argument('--prepend-space-to-text', action='store_true',
                       help='Capture leading silence with a space token')
     data.add_argument('--append-space-to-text', action='store_true',
