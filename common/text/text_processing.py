@@ -49,7 +49,10 @@ class TextProcessing(object):
                 sequence += self.symbols_to_sequence(text)
                 break
             sequence += self.symbols_to_sequence(m.group(1))
-            sequence += self.arpabet_to_sequence(m.group(2))
+            # HACK: Custom dataset not arpabet
+            sequence += self.symbols_to_sequence(m.group(2))
+
+            # sequence += self.arpabet_to_sequence(m.group(2))
             text = m.group(3)
 
         return sequence
@@ -155,7 +158,8 @@ class TextProcessing(object):
             elif self.handle_arpabet != '':
                 raise Exception("{} handle_arpabet is not supported".format(
                     self.handle_arpabet))
-
+        # HACK: remove later
+        print(text)
         text_encoded = self.text_to_sequence(text)
 
         if return_all:
